@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0F1F01E25946C2D00023159 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F01D25946C2D00023159 /* AppDelegate.m */; };
+		A0F1F02425946C2D00023159 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F02325946C2D00023159 /* ViewController.m */; };
+		A0F1F02725946C2D00023159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F1F02525946C2D00023159 /* Main.storyboard */; };
+		A0F1F02925946C3000023159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F1F02825946C3000023159 /* Assets.xcassets */; };
+		A0F1F02C25946C3000023159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F1F02A25946C3000023159 /* LaunchScreen.storyboard */; };
+		A0F1F02F25946C3000023159 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F02E25946C3000023159 /* main.m */; };
+		A0F1F0702594AC5400023159 /* waving_filter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F06F2594AC5400023159 /* waving_filter.metal */; };
+		A0F1F07C2594CDC800023159 /* WavingFlagFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F07B2594CDC800023159 /* WavingFlagFilter.m */; };
+		FE08C297ED873B44F4184373 /* Pods_WavingFlag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19734D24EAABEBF5CA6C7608 /* Pods_WavingFlag.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		19734D24EAABEBF5CA6C7608 /* Pods_WavingFlag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavingFlag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E38196EBC5A28AEE2D0A072 /* Pods-WavingFlag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WavingFlag.debug.xcconfig"; path = "Target Support Files/Pods-WavingFlag/Pods-WavingFlag.debug.xcconfig"; sourceTree = "<group>"; };
+		A0F1F01925946C2D00023159 /* WavingFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WavingFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0F1F01C25946C2D00023159 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A0F1F01D25946C2D00023159 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A0F1F02225946C2D00023159 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A0F1F02325946C2D00023159 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A0F1F02625946C2D00023159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0F1F02825946C3000023159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0F1F02B25946C3000023159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0F1F02D25946C3000023159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F1F02E25946C3000023159 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0F1F03825946C3100023159 /* WavingFlagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WavingFlagTests.m; sourceTree = "<group>"; };
+		A0F1F03A25946C3100023159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F1F04325946C3100023159 /* WavingFlagUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WavingFlagUITests.m; sourceTree = "<group>"; };
+		A0F1F04525946C3100023159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0F1F06F2594AC5400023159 /* waving_filter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = waving_filter.metal; sourceTree = "<group>"; };
+		A0F1F07A2594CDC800023159 /* WavingFlagFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WavingFlagFilter.h; sourceTree = "<group>"; };
+		A0F1F07B2594CDC800023159 /* WavingFlagFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WavingFlagFilter.m; sourceTree = "<group>"; };
+		C66E016191B61CFBA48839A6 /* Pods-WavingFlag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WavingFlag.release.xcconfig"; path = "Target Support Files/Pods-WavingFlag/Pods-WavingFlag.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0F1F01625946C2D00023159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE08C297ED873B44F4184373 /* Pods_WavingFlag.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19FA28F92E7FC46E870CECC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19734D24EAABEBF5CA6C7608 /* Pods_WavingFlag.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95CA542A8399EB2C4918E3AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E38196EBC5A28AEE2D0A072 /* Pods-WavingFlag.debug.xcconfig */,
+				C66E016191B61CFBA48839A6 /* Pods-WavingFlag.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A09BD7E726A009950076B23C /* CustomFilter */ = {
+			isa = PBXGroup;
+			children = (
+				A0F1F06F2594AC5400023159 /* waving_filter.metal */,
+				A0F1F07A2594CDC800023159 /* WavingFlagFilter.h */,
+				A0F1F07B2594CDC800023159 /* WavingFlagFilter.m */,
+			);
+			path = CustomFilter;
+			sourceTree = "<group>";
+		};
+		A0F1F01025946C2D00023159 = {
+			isa = PBXGroup;
+			children = (
+				A0F1F01B25946C2D00023159 /* WavingFlag */,
+				A0F1F03725946C3100023159 /* WavingFlagTests */,
+				A0F1F04225946C3100023159 /* WavingFlagUITests */,
+				A0F1F01A25946C2D00023159 /* Products */,
+				95CA542A8399EB2C4918E3AE /* Pods */,
+				19FA28F92E7FC46E870CECC4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0F1F01A25946C2D00023159 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0F1F01925946C2D00023159 /* WavingFlag.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0F1F01B25946C2D00023159 /* WavingFlag */ = {
+			isa = PBXGroup;
+			children = (
+				A0F1F01C25946C2D00023159 /* AppDelegate.h */,
+				A0F1F01D25946C2D00023159 /* AppDelegate.m */,
+				A0F1F02225946C2D00023159 /* ViewController.h */,
+				A0F1F02325946C2D00023159 /* ViewController.m */,
+				A09BD7E726A009950076B23C /* CustomFilter */,
+				A0F1F02525946C2D00023159 /* Main.storyboard */,
+				A0F1F02825946C3000023159 /* Assets.xcassets */,
+				A0F1F02A25946C3000023159 /* LaunchScreen.storyboard */,
+				A0F1F02D25946C3000023159 /* Info.plist */,
+				A0F1F02E25946C3000023159 /* main.m */,
+			);
+			path = WavingFlag;
+			sourceTree = "<group>";
+		};
+		A0F1F03725946C3100023159 /* WavingFlagTests */ = {
+			isa = PBXGroup;
+			children = (
+				A0F1F03825946C3100023159 /* WavingFlagTests.m */,
+				A0F1F03A25946C3100023159 /* Info.plist */,
+			);
+			path = WavingFlagTests;
+			sourceTree = "<group>";
+		};
+		A0F1F04225946C3100023159 /* WavingFlagUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A0F1F04325946C3100023159 /* WavingFlagUITests.m */,
+				A0F1F04525946C3100023159 /* Info.plist */,
+			);
+			path = WavingFlagUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0F1F01825946C2D00023159 /* WavingFlag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0F1F04825946C3100023159 /* Build configuration list for PBXNativeTarget "WavingFlag" */;
+			buildPhases = (
+				B4E433C16BF2963F905761A6 /* [CP] Check Pods Manifest.lock */,
+				A0F1F01525946C2D00023159 /* Sources */,
+				A0F1F01625946C2D00023159 /* Frameworks */,
+				A0F1F01725946C2D00023159 /* Resources */,
+				EB23FD3F0605D0AF5ED592FE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WavingFlag;
+			productName = WavingFlag;
+			productReference = A0F1F01925946C2D00023159 /* WavingFlag.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0F1F01125946C2D00023159 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					A0F1F01825946C2D00023159 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+				};
+			};
+			buildConfigurationList = A0F1F01425946C2D00023159 /* Build configuration list for PBXProject "WavingFlag" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0F1F01025946C2D00023159;
+			productRefGroup = A0F1F01A25946C2D00023159 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0F1F01825946C2D00023159 /* WavingFlag */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0F1F01725946C2D00023159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0F1F02C25946C3000023159 /* LaunchScreen.storyboard in Resources */,
+				A0F1F02925946C3000023159 /* Assets.xcassets in Resources */,
+				A0F1F02725946C2D00023159 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B4E433C16BF2963F905761A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WavingFlag-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB23FD3F0605D0AF5ED592FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WavingFlag/Pods-WavingFlag-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WavingFlag/Pods-WavingFlag-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WavingFlag/Pods-WavingFlag-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0F1F01525946C2D00023159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0F1F02425946C2D00023159 /* ViewController.m in Sources */,
+				A0F1F01E25946C2D00023159 /* AppDelegate.m in Sources */,
+				A0F1F02F25946C3000023159 /* main.m in Sources */,
+				A0F1F0702594AC5400023159 /* waving_filter.metal in Sources */,
+				A0F1F07C2594CDC800023159 /* WavingFlagFilter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A0F1F02525946C2D00023159 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0F1F02625946C2D00023159 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A0F1F02A25946C3000023159 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0F1F02B25946C3000023159 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A0F1F04625946C3100023159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A0F1F04725946C3100023159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0F1F04925946C3100023159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E38196EBC5A28AEE2D0A072 /* Pods-WavingFlag.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U8DK4S4CV4;
+				INFOPLIST_FILE = WavingFlag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_HEADER_SEARCH_PATHS = "${PODS_CONFIGURATION_BUILD_DIR}/MetalPetal/MetalPetal.framework/Headers";
+				PRODUCT_BUNDLE_IDENTIFIER = BrainCraft.WavingFlag;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A0F1F04A25946C3100023159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C66E016191B61CFBA48839A6 /* Pods-WavingFlag.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U8DK4S4CV4;
+				INFOPLIST_FILE = WavingFlag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_HEADER_SEARCH_PATHS = "${PODS_CONFIGURATION_BUILD_DIR}/MetalPetal/MetalPetal.framework/Headers";
+				PRODUCT_BUNDLE_IDENTIFIER = BrainCraft.WavingFlag;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0F1F01425946C2D00023159 /* Build configuration list for PBXProject "WavingFlag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0F1F04625946C3100023159 /* Debug */,
+				A0F1F04725946C3100023159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0F1F04825946C3100023159 /* Build configuration list for PBXNativeTarget "WavingFlag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0F1F04925946C3100023159 /* Debug */,
+				A0F1F04A25946C3100023159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0F1F01125946C2D00023159 /* Project object */;
+}
