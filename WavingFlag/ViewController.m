@@ -11,6 +11,7 @@
 @interface ViewController (){
     dispatch_once_t onceTokenViewLoad;
     MTIImage *tempImage;
+    WavingFlagFilter *waveFilter;
 }
 @property (nonatomic, strong) MTIContext *mtiContext;
 @property (nonatomic, strong) CIContext *context;
@@ -58,20 +59,11 @@ UIImage *image;
 -(void) useWaveFilter{
     tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage = [tempImage imageByUnpremultiplyingAlpha];
-    self.mtiImageView.image = tempImage;   
-    
-    
-    
-//    WavingFlagFilter *waveFilter = [[WavingFlagFilter alloc] init];
-//    MTIImage *tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-//    tempImage = [tempImage imageByUnpremultiplyingAlpha];
-//    self.mtiImageView.image = tempImage;
-//
+    self.mtiImageView.image = tempImage;
+    waveFilter = [[WavingFlagFilter alloc] init];
 //    while(true){
-//        waveFilter.inputImage =  tempImage;
-////        self.mtiImageView.image = waveFilter.outputImage;
-//
-//
+        waveFilter.inputImage =  tempImage;
+        self.mtiImageView.image = waveFilter.outputImage;
 //    }
     
 }
