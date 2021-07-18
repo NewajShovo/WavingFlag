@@ -48,6 +48,7 @@ UIImage *image;
         shapeLayer.fillColor = [UIColor clearColor].CGColor;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.mtiImageView.layer.hidden = NO;
             [self useWaveFilter];
         });
     });
@@ -55,7 +56,7 @@ UIImage *image;
 
 
 -(void) useWaveFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(YES)}];
+    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage = [tempImage imageByUnpremultiplyingAlpha];
     self.mtiImageView.image = tempImage;   
     

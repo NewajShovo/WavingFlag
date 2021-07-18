@@ -16,14 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UcW-ym-Zuz" customClass="MTIImageView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcW-ym-Zuz" customClass="MTIImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UcW-ym-Zuz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4Of-HP-XvW"/>
+                            <constraint firstItem="UcW-ym-Zuz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HRC-al-WSS"/>
+                            <constraint firstAttribute="bottom" secondItem="UcW-ym-Zuz" secondAttribute="bottom" id="YTK-1y-dfd"/>
+                            <constraint firstAttribute="trailing" secondItem="UcW-ym-Zuz" secondAttribute="trailing" id="wt2-TJ-de9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mtiImageView" destination="UcW-ym-Zuz" id="PNZ-wW-00N"/>
