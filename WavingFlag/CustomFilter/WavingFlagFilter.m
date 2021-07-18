@@ -37,13 +37,16 @@
 - (MTIImage *) outputImage
 {
     
-    float timeValue = fmod(CFAbsoluteTimeGetCurrent(), 5);
-    return [WavingFlagFilter.kernel applyToInputImages:@[self.inputImage]
-//                                           parameters:@{
-//                                               @"time": @(timeValue)
-//                                           }
-                                            parameters:@{}
-                      outputTextureDimensions:MTITextureDimensionsMake2DFromCGSize(self.inputImage.size)
-                            outputPixelFormat:self.outputPixelFormat];
+    float timeValue =fmod(CFAbsoluteTimeGetCurrent(), 100);
+//    CFAbsoluteTimeGetCurrent();
+    
+    
+    return [self.class.kernel applyToInputImages:@[ self.inputImage ]
+                                      parameters:@{
+                                          @"time" : @(timeValue)
+                                      }
+                         outputTextureDimensions:MTITextureDimensionsMake2DFromCGSize(self.inputImage.size)
+                               outputPixelFormat:self.outputPixelFormat];
+    
 }
 @end
