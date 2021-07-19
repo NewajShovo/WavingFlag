@@ -7,8 +7,9 @@
 
 #import "WavingFlagFilter.h"
 
-@interface WavingFlagFilter ()
-
+@interface WavingFlagFilter (){
+    CGFloat startTime;
+}
 @end
 
 @implementation WavingFlagFilter
@@ -31,16 +32,14 @@
 - (instancetype)init
 {
     self = [super init];
+    startTime = CFAbsoluteTimeGetCurrent();
     return self;
 }
 
 - (MTIImage *) outputImage
 {
     
-    float timeValue =fmod(CFAbsoluteTimeGetCurrent(), 100);
-//    CFAbsoluteTimeGetCurrent();
-    
-    
+    float timeValue =CFAbsoluteTimeGetCurrent()-startTime;
     return [self.class.kernel applyToInputImages:@[ self.inputImage ]
                                       parameters:@{
                                           @"time" : @(timeValue)

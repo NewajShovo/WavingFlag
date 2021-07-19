@@ -68,7 +68,7 @@ UIImage *image;
             self->waveFilter.inputImage =  self->tempImage;
             self.mtiImageView.image = self->waveFilter.outputImage;
         });
-        sleep(1.0);
+//        sleep(0.20);
     }
     
 }
