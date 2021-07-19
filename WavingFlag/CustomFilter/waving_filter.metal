@@ -23,7 +23,7 @@ fragment float4 wavingFlagFragmentFunc(VertexOut vertexIn [[ stage_in ]],
     float2 curCoord = textureCoordinate * textureSize;
     float3 currentColor = inTexture1.sample(inSampler1, xy).rgb;
     const float PI = 3.1415926535;
-    float w = sin((curCoord.x + curCoord.y - 10 * .5 + sin(1.5 * curCoord.x + 4.5 * curCoord.y) * PI * .3) * PI * .6); // fake waviness factor
+    float w = sin((curCoord.x + curCoord.y - time * .5 + sin(1.5 * curCoord.x + 4.5 * curCoord.y) * PI * .3) * PI * .6); // fake waviness factor
     float3 col = float3(currentColor.r,currentColor.g,currentColor.b);
     col += w * .12;
 

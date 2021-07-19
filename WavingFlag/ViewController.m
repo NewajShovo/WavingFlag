@@ -50,7 +50,9 @@ UIImage *image;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.mtiImageView.layer.hidden = NO;
-            [self useWaveFilter];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                [self useWaveFilter];
+            });
         });
     });
 }
@@ -59,12 +61,15 @@ UIImage *image;
 -(void) useWaveFilter{
     tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage = [tempImage imageByUnpremultiplyingAlpha];
-    self.mtiImageView.image = tempImage;
+    //self.mtiImageView.image = tempImage;
     waveFilter = [[WavingFlagFilter alloc] init];
-//    while(true){
-        waveFilter.inputImage =  tempImage;
-        self.mtiImageView.image = waveFilter.outputImage;
-//    }
+    while(true){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self->waveFilter.inputImage =  self->tempImage;
+            self.mtiImageView.image = self->waveFilter.outputImage;
+        });
+        sleep(1.0);
+    }
     
 }
 
