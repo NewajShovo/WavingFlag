@@ -7,11 +7,15 @@
 
 #import "ViewController.h"
 #import "WavingFlagFilter.h"
+#import "MirrorTileFilter.h"
+#import "overLayFilter.h"
 
 @interface ViewController (){
     dispatch_once_t onceTokenViewLoad;
-    MTIImage *tempImage;
+    MTIImage *tempImage, *tempImage1;
     WavingFlagFilter *waveFilter;
+    MirrorTileFilter *mirrorTileFilter;
+    overLayFilter *overlayFilter;
 }
 @property (nonatomic, strong) MTIContext *mtiContext;
 @property (nonatomic, strong) CIContext *context;
@@ -44,14 +48,20 @@ UIImage *image;
         shapeLayer.fillRule = kCAFillRuleEvenOdd;
         shapeLayer.lineWidth = 0.0;
         [self.view.layer addSublayer:shapeLayer];
-        image = [self takeSnapshot];
+//        image = [self takeSnapshot];
+//        image = [UIImage imageNamed:@"IMG_2025.PNG"];
+//        image = [UIImage imageNamed:@"IMG_1805.JPG"];
+//        image = [UIImage imageNamed:@"potrait9.JPG"];
+//        image = [UIImage imageNamed:@"potrait7.JPG"];
+        image = [UIImage imageNamed:@"Image.png"];
         self.view.backgroundColor = [UIColor clearColor];
         shapeLayer.fillColor = [UIColor clearColor].CGColor;
-        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.mtiImageView.layer.hidden = NO;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-                [self useWaveFilter];
+//                [self useWaveFilter];
+//                 [self useMirrorTileFilter];
+                [self useOverlayFilter];
             });
         });
     });
@@ -61,16 +71,44 @@ UIImage *image;
 -(void) useWaveFilter{
     tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage = [tempImage imageByUnpremultiplyingAlpha];
-    //self.mtiImageView.image = tempImage;
     waveFilter = [[WavingFlagFilter alloc] init];
     while(true){
         dispatch_async(dispatch_get_main_queue(), ^{
             self->waveFilter.inputImage =  self->tempImage;
             self.mtiImageView.image = self->waveFilter.outputImage;
         });
-//        sleep(0.20);
     }
+}
+
+-(void) useMirrorTileFilter{
+    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage = [tempImage imageByUnpremultiplyingAlpha];
+    mirrorTileFilter = [[MirrorTileFilter alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtiImageView.image = self->tempImage;
+        self->mirrorTileFilter.inputImage = self->tempImage;
+        self.mtiImageView.image = self->mirrorTileFilter.outputImage;
+    });
+}
+
+-(void) useOverlayFilter{
+    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage = [tempImage imageByUnpremultiplyingAlpha];
+//    UIImage *backGroundImage = [UIImage imageNamed:@"bcm_test_filter_frame_sample.png"];
+    UIImage *backGroundImage = [UIImage imageNamed:@"IMG_1805.JPG"];
     
+    tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage1 = [tempImage1 imageByPremultiplyingAlpha];
+    overlayFilter = [[overLayFilter alloc] init];
+    overlayFilter.inputImage = tempImage;
+    overlayFilter.overlayMaskImage = tempImage1;
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtiImageView.image = self->tempImage;
+        
+        self.mtiImageView.image = self->overlayFilter.outputImage;
+    });
 }
 
 

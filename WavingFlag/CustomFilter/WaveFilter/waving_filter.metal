@@ -36,11 +36,11 @@ fragment float4 wavingFlagFragmentFunc(VertexOut vertexIn [[ stage_in ]],
     p.x += time*0.2;
     float3 col1 = currentColor;
     float3 col2 = currentColor;
-    //    float d = step(sin(p.y*20.0)+sin(p.x*20.0),0.0);
-    //
-    //    float3 col1 = float3(0.7,0.3,0.3);
-    //    float3 col2 = float3(0.4,0.0,0.4);
     float d = step(sin(p.y*20.0)+sin(p.x*20.0),0.0);
+    
+//        float3 col1 = float3(0.0,1.0,0.0);
+//        float3 col2 = float3(1.0,0.0,0.0);
+//    float d = step(sin(p.y*20.0)+sin(p.x*20.0),0.0);
     float4 changeColor = float4(mix(col1,col2,d)*z,1.0);
     return changeColor ;
 }
