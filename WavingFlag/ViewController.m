@@ -11,6 +11,7 @@
 #import "OverLayFilter.h"
 #import "OverlayWithFrameFilter.h"
 #import "OverlayWithAlphaFilter.h"
+#import "TileZoomFilter.h"
 
 @interface ViewController (){
     dispatch_once_t onceTokenViewLoad;
@@ -20,6 +21,8 @@
     OverLayFilter *overlayFilter;
     OverlayWithFrameFilter *overlayWithFrameFilter;
     OverlayWithAlphaFilter *overlayWithAlphaFilter;
+    TileZoomFilter *tileZoomFilter;
+    
 }
 @property (nonatomic, strong) MTIContext *mtiContext;
 @property (nonatomic, strong) CIContext *context;
@@ -56,8 +59,8 @@ UIImage *image;
 //        image = [UIImage imageNamed:@"IMG_2025.PNG"];
 //        image = [UIImage imageNamed:@"IMG_1805.JPG"];
 //        image = [UIImage imageNamed:@"potrait9.JPG"];
-//        image = [UIImage imageNamed:@"potrait7.JPG"];
-        image = [UIImage imageNamed:@"Image.png"];
+        image = [UIImage imageNamed:@"potrait7.JPG"];
+//        image = [UIImage imageNamed:@"Image.png"];
         self.view.backgroundColor = [UIColor clearColor];
         shapeLayer.fillColor = [UIColor clearColor].CGColor;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -67,7 +70,8 @@ UIImage *image;
 //                [self useMirrorTileFilter];
 //                [self useOverlayFilter];
 //                [self useOverlayWithFrameFilter];
-                [self useOverlayWithAlphaFilter]; 
+//                [self useOverlayWithAlphaFilter];
+                [self useTileZoomFilter];
             });
         });
     });
@@ -146,6 +150,19 @@ UIImage *image;
         self.mtiImageView.image = self->overlayWithAlphaFilter.outputImage;
     });
 }
+
+-(void) useTileZoomFilter{
+    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage = [tempImage imageByUnpremultiplyingAlpha];
+    tileZoomFilter = [[TileZoomFilter alloc] init];
+    tileZoomFilter.inputImage = tempImage;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtiImageView.image = self->tempImage;
+        self.mtiImageView.image = self->tileZoomFilter.outputImage;
+    });
+}
+
 
 #pragma mark - ViewDidLayoutSubviews Called
 -(void) viewDidLayoutSubviews{

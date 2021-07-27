@@ -22,6 +22,7 @@ fragment float4 overLayWithAlphaFragFunc(
     float4 inputColor = inTexture.sample(inSampler, textureCoordinate);
     float4 maskColor = inTextureMask.sample(inSamplerMask, textureCoordinate);
     float4 color = normalBlend(inputColor, maskColor);
+
     return color;
 
 }

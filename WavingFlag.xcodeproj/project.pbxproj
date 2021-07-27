@@ -10,6 +10,8 @@
 		A04302FD26AFE5570022C26C /* filter1.darken.png in Resources */ = {isa = PBXBuildFile; fileRef = A04302FC26AFE5570022C26C /* filter1.darken.png */; };
 		A043030226AFE5F20022C26C /* OverlayWithAlphaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A043030126AFE5F20022C26C /* OverlayWithAlphaFilter.m */; };
 		A043030626AFE6130022C26C /* overlayWithAlphaFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A043030526AFE6130022C26C /* overlayWithAlphaFilter.metal */; };
+		A043030C26B01B4D0022C26C /* TileZoomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A043030B26B01B4D0022C26C /* TileZoomFilter.m */; };
+		A043030F26B01B6E0022C26C /* tileZoomFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A043030E26B01B6E0022C26C /* tileZoomFilter.metal */; };
 		A0803EC326AEF97E00F8989A /* OverlayWithFrameFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0803EC226AEF97E00F8989A /* OverlayWithFrameFilter.m */; };
 		A0803EC926AEF9D900F8989A /* overlayWithFrameFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A0803EC826AEF9D900F8989A /* overlayWithFrameFilter.metal */; };
 		A099672E26AECBEC00D67FF1 /* OverLayFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A099672D26AECBEC00D67FF1 /* OverLayFilter.m */; };
@@ -39,6 +41,9 @@
 		A043030026AFE5F20022C26C /* OverlayWithAlphaFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayWithAlphaFilter.h; sourceTree = "<group>"; };
 		A043030126AFE5F20022C26C /* OverlayWithAlphaFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverlayWithAlphaFilter.m; sourceTree = "<group>"; };
 		A043030526AFE6130022C26C /* overlayWithAlphaFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = overlayWithAlphaFilter.metal; sourceTree = "<group>"; };
+		A043030A26B01B4D0022C26C /* TileZoomFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TileZoomFilter.h; sourceTree = "<group>"; };
+		A043030B26B01B4D0022C26C /* TileZoomFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TileZoomFilter.m; sourceTree = "<group>"; };
+		A043030E26B01B6E0022C26C /* tileZoomFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = tileZoomFilter.metal; sourceTree = "<group>"; };
 		A0803EC226AEF97E00F8989A /* OverlayWithFrameFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverlayWithFrameFilter.m; sourceTree = "<group>"; };
 		A0803EC626AEF9B500F8989A /* OverlayWithFrameFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayWithFrameFilter.h; sourceTree = "<group>"; };
 		A0803EC826AEF9D900F8989A /* overlayWithFrameFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = overlayWithFrameFilter.metal; sourceTree = "<group>"; };
@@ -112,6 +117,16 @@
 			path = OverlayWithAlphaFilter;
 			sourceTree = "<group>";
 		};
+		A043030926B01B370022C26C /* TileZoomFilter */ = {
+			isa = PBXGroup;
+			children = (
+				A043030E26B01B6E0022C26C /* tileZoomFilter.metal */,
+				A043030A26B01B4D0022C26C /* TileZoomFilter.h */,
+				A043030B26B01B4D0022C26C /* TileZoomFilter.m */,
+			);
+			path = TileZoomFilter;
+			sourceTree = "<group>";
+		};
 		A0803EBF26AEF94B00F8989A /* OverlayWithFrameFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +164,7 @@
 		A09BD7E726A009950076B23C /* CustomFilter */ = {
 			isa = PBXGroup;
 			children = (
+				A043030926B01B370022C26C /* TileZoomFilter */,
 				A04302FF26AFE5820022C26C /* OverlayWithAlphaFilter */,
 				A0803EBF26AEF94B00F8989A /* OverlayWithFrameFilter */,
 				A099672B26AECBBE00D67FF1 /* OverLayFilter */,
@@ -354,6 +370,7 @@
 			files = (
 				A0BE381E26AD90870002CBA4 /* MirrorTileFilter.m in Sources */,
 				A0F1F02425946C2D00023159 /* ViewController.m in Sources */,
+				A043030C26B01B4D0022C26C /* TileZoomFilter.m in Sources */,
 				A099673226AECC0900D67FF1 /* overlayFilter.metal in Sources */,
 				A0803EC926AEF9D900F8989A /* overlayWithFrameFilter.metal in Sources */,
 				A099672E26AECBEC00D67FF1 /* OverLayFilter.m in Sources */,
@@ -362,6 +379,7 @@
 				A0F1F01E25946C2D00023159 /* AppDelegate.m in Sources */,
 				A0F1F02F25946C3000023159 /* main.m in Sources */,
 				A0F1F0702594AC5400023159 /* waving_filter.metal in Sources */,
+				A043030F26B01B6E0022C26C /* tileZoomFilter.metal in Sources */,
 				A043030226AFE5F20022C26C /* OverlayWithAlphaFilter.m in Sources */,
 				A0803EC326AEF97E00F8989A /* OverlayWithFrameFilter.m in Sources */,
 				A0F1F07C2594CDC800023159 /* WavingFlagFilter.m in Sources */,

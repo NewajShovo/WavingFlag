@@ -1,13 +1,13 @@
 //
-//  OverlayWithFrame.m
+//  TileZoomFilter.m
 //  WavingFlag
 //
-//  Created by leo on 26/7/21.
+//  Created by leo on 27/7/21.
 //
 
-#import "OverlayWithFrameFilter.h"
+#import "TileZoomFilter.h"
 
-@implementation OverlayWithFrameFilter
+@implementation TileZoomFilter
 + (MTIRenderPipelineKernel *) kernel
 {
     static MTIRenderPipelineKernel * kernel;
@@ -16,7 +16,7 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             kernel = [[MTIRenderPipelineKernel alloc] initWithVertexFunctionDescriptor:[[MTIFunctionDescriptor alloc] initWithName:MTIFilterPassthroughVertexFunctionName]
-                                                            fragmentFunctionDescriptor:[[MTIFunctionDescriptor alloc] initWithName:@"overLayWithFrameFragFunc" libraryURL:[bundle URLForResource:@"default" withExtension:@"metallib"]]
+                                                            fragmentFunctionDescriptor:[[MTIFunctionDescriptor alloc] initWithName:@"tileZoomFilterFragFunc" libraryURL:[bundle URLForResource:@"default" withExtension:@"metallib"]]
                       ];
         });
     }
@@ -35,10 +35,10 @@
         return self.inputImage;
     }
     self.inputImage = [self.inputImage imageWithSamplerDescriptor:[MTISamplerDescriptor defaultSamplerDescriptorWithAddressMode:MTLSamplerAddressModeClampToEdge]];
-    return [self.class.kernel applyToInputImages:@[ self.inputImage, self.frameImage ]
+    return [self.class.kernel applyToInputImages:@[ self.inputImage]
                                       parameters:@{
                                       }
-                         outputTextureDimensions:MTITextureDimensionsMake2DFromCGSize(CGSizeMake(400, 400))
+                         outputTextureDimensions:MTITextureDimensionsMake2DFromCGSize(self.inputImage.size)
                                outputPixelFormat:self.outputPixelFormat];
     
 }
