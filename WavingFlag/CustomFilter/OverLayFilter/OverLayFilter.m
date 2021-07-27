@@ -5,9 +5,9 @@
 //  Created by leo on 26/7/21.
 //
 
-#import "overLayFilter.h"
+#import "OverLayFilter.h"
 
-@implementation overLayFilter
+@implementation OverLayFilter
 + (MTIRenderPipelineKernel *) kernel
 {
     static MTIRenderPipelineKernel * kernel;
@@ -34,11 +34,9 @@
     if (self.inputImage == nil) {
         return self.inputImage;
     }
-    
     self.inputImage = [self.inputImage imageWithSamplerDescriptor:[MTISamplerDescriptor defaultSamplerDescriptorWithAddressMode:MTLSamplerAddressModeClampToEdge]];
     return [self.class.kernel applyToInputImages:@[ self.inputImage, self.overlayMaskImage ]
                                       parameters:@{
-        
                                       }
                          outputTextureDimensions:MTITextureDimensionsMake2DFromCGSize(self.inputImage.size)
                                outputPixelFormat:self.outputPixelFormat];

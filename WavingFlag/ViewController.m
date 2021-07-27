@@ -8,14 +8,18 @@
 #import "ViewController.h"
 #import "WavingFlagFilter.h"
 #import "MirrorTileFilter.h"
-#import "overLayFilter.h"
+#import "OverLayFilter.h"
+#import "OverlayWithFrameFilter.h"
+#import "OverlayWithAlphaFilter.h"
 
 @interface ViewController (){
     dispatch_once_t onceTokenViewLoad;
     MTIImage *tempImage, *tempImage1;
     WavingFlagFilter *waveFilter;
     MirrorTileFilter *mirrorTileFilter;
-    overLayFilter *overlayFilter;
+    OverLayFilter *overlayFilter;
+    OverlayWithFrameFilter *overlayWithFrameFilter;
+    OverlayWithAlphaFilter *overlayWithAlphaFilter;
 }
 @property (nonatomic, strong) MTIContext *mtiContext;
 @property (nonatomic, strong) CIContext *context;
@@ -60,8 +64,10 @@ UIImage *image;
             self.mtiImageView.layer.hidden = NO;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 //                [self useWaveFilter];
-//                 [self useMirrorTileFilter];
-                [self useOverlayFilter];
+//                [self useMirrorTileFilter];
+//                [self useOverlayFilter];
+//                [self useOverlayWithFrameFilter];
+                [self useOverlayWithAlphaFilter]; 
             });
         });
     });
@@ -91,15 +97,29 @@ UIImage *image;
     });
 }
 
+-(void) useOverlayWithFrameFilter{
+    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage = [tempImage imageByUnpremultiplyingAlpha];
+    UIImage *backGroundImage = [UIImage imageNamed:@"bcm_test_filter_frame_sample.png"];
+    tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage1 = [tempImage1 imageByUnpremultiplyingAlpha];
+    overlayWithFrameFilter = [[OverlayWithFrameFilter alloc] init];
+    overlayWithFrameFilter.inputImage = tempImage;
+    overlayWithFrameFilter.frameImage = tempImage1;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtiImageView.image = self->tempImage;
+        
+        self.mtiImageView.image = self->overlayWithFrameFilter.outputImage;
+    });
+}
+
 -(void) useOverlayFilter{
     tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage = [tempImage imageByUnpremultiplyingAlpha];
-//    UIImage *backGroundImage = [UIImage imageNamed:@"bcm_test_filter_frame_sample.png"];
-    UIImage *backGroundImage = [UIImage imageNamed:@"IMG_1805.JPG"];
-    
+    UIImage *backGroundImage = [UIImage imageNamed:@"bcm_test_filter_frame_sample.png"];
     tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage1 = [tempImage1 imageByPremultiplyingAlpha];
-    overlayFilter = [[overLayFilter alloc] init];
+    tempImage1 = [tempImage1 imageByUnpremultiplyingAlpha];
+    overlayFilter = [[OverLayFilter alloc] init];
     overlayFilter.inputImage = tempImage;
     overlayFilter.overlayMaskImage = tempImage1;
     
@@ -111,6 +131,21 @@ UIImage *image;
     });
 }
 
+
+-(void) useOverlayWithAlphaFilter{
+    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage = [tempImage imageByUnpremultiplyingAlpha];
+    UIImage *backGroundImage = [UIImage imageNamed:@"filter1.darken.png"];
+    tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    tempImage1 = [tempImage1 imageByUnpremultiplyingAlpha];
+    overlayWithAlphaFilter = [[OverlayWithAlphaFilter alloc] init];
+    overlayWithAlphaFilter.inputImage = tempImage;
+    overlayWithAlphaFilter.alphaImage = tempImage1;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.mtiImageView.image = self->tempImage;
+        self.mtiImageView.image = self->overlayWithAlphaFilter.outputImage;
+    });
+}
 
 #pragma mark - ViewDidLayoutSubviews Called
 -(void) viewDidLayoutSubviews{

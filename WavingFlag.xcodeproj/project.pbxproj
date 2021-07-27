@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A099672E26AECBEC00D67FF1 /* overLayFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A099672D26AECBEC00D67FF1 /* overLayFilter.m */; };
+		A04302FD26AFE5570022C26C /* filter1.darken.png in Resources */ = {isa = PBXBuildFile; fileRef = A04302FC26AFE5570022C26C /* filter1.darken.png */; };
+		A043030226AFE5F20022C26C /* OverlayWithAlphaFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A043030126AFE5F20022C26C /* OverlayWithAlphaFilter.m */; };
+		A043030626AFE6130022C26C /* overlayWithAlphaFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A043030526AFE6130022C26C /* overlayWithAlphaFilter.metal */; };
+		A0803EC326AEF97E00F8989A /* OverlayWithFrameFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0803EC226AEF97E00F8989A /* OverlayWithFrameFilter.m */; };
+		A0803EC926AEF9D900F8989A /* overlayWithFrameFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A0803EC826AEF9D900F8989A /* overlayWithFrameFilter.metal */; };
+		A099672E26AECBEC00D67FF1 /* OverLayFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A099672D26AECBEC00D67FF1 /* OverLayFilter.m */; };
 		A099673226AECC0900D67FF1 /* overlayFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = A099673126AECC0800D67FF1 /* overlayFilter.metal */; };
 		A099673B26AED02300D67FF1 /* bcm_test_filter_frame_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = A099673A26AED02300D67FF1 /* bcm_test_filter_frame_sample.png */; };
 		A0BE381E26AD90870002CBA4 /* MirrorTileFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = A0BE381D26AD90870002CBA4 /* MirrorTileFilter.m */; };
@@ -30,8 +35,15 @@
 /* Begin PBXFileReference section */
 		19734D24EAABEBF5CA6C7608 /* Pods_WavingFlag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WavingFlag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E38196EBC5A28AEE2D0A072 /* Pods-WavingFlag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WavingFlag.debug.xcconfig"; path = "Target Support Files/Pods-WavingFlag/Pods-WavingFlag.debug.xcconfig"; sourceTree = "<group>"; };
-		A099672C26AECBEC00D67FF1 /* overLayFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = overLayFilter.h; sourceTree = "<group>"; };
-		A099672D26AECBEC00D67FF1 /* overLayFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = overLayFilter.m; sourceTree = "<group>"; };
+		A04302FC26AFE5570022C26C /* filter1.darken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter1.darken.png; sourceTree = "<group>"; };
+		A043030026AFE5F20022C26C /* OverlayWithAlphaFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayWithAlphaFilter.h; sourceTree = "<group>"; };
+		A043030126AFE5F20022C26C /* OverlayWithAlphaFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverlayWithAlphaFilter.m; sourceTree = "<group>"; };
+		A043030526AFE6130022C26C /* overlayWithAlphaFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = overlayWithAlphaFilter.metal; sourceTree = "<group>"; };
+		A0803EC226AEF97E00F8989A /* OverlayWithFrameFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverlayWithFrameFilter.m; sourceTree = "<group>"; };
+		A0803EC626AEF9B500F8989A /* OverlayWithFrameFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayWithFrameFilter.h; sourceTree = "<group>"; };
+		A0803EC826AEF9D900F8989A /* overlayWithFrameFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = overlayWithFrameFilter.metal; sourceTree = "<group>"; };
+		A099672C26AECBEC00D67FF1 /* OverLayFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverLayFilter.h; sourceTree = "<group>"; };
+		A099672D26AECBEC00D67FF1 /* OverLayFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverLayFilter.m; sourceTree = "<group>"; };
 		A099673126AECC0800D67FF1 /* overlayFilter.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = overlayFilter.metal; sourceTree = "<group>"; };
 		A099673A26AED02300D67FF1 /* bcm_test_filter_frame_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bcm_test_filter_frame_sample.png; sourceTree = "<group>"; };
 		A0BE381C26AD90870002CBA4 /* MirrorTileFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MirrorTileFilter.h; sourceTree = "<group>"; };
@@ -90,20 +102,55 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A04302FF26AFE5820022C26C /* OverlayWithAlphaFilter */ = {
+			isa = PBXGroup;
+			children = (
+				A043030526AFE6130022C26C /* overlayWithAlphaFilter.metal */,
+				A043030026AFE5F20022C26C /* OverlayWithAlphaFilter.h */,
+				A043030126AFE5F20022C26C /* OverlayWithAlphaFilter.m */,
+			);
+			path = OverlayWithAlphaFilter;
+			sourceTree = "<group>";
+		};
+		A0803EBF26AEF94B00F8989A /* OverlayWithFrameFilter */ = {
+			isa = PBXGroup;
+			children = (
+				A0803EC826AEF9D900F8989A /* overlayWithFrameFilter.metal */,
+				A0803EC626AEF9B500F8989A /* OverlayWithFrameFilter.h */,
+				A0803EC226AEF97E00F8989A /* OverlayWithFrameFilter.m */,
+			);
+			path = OverlayWithFrameFilter;
+			sourceTree = "<group>";
+		};
 		A099672B26AECBBE00D67FF1 /* OverLayFilter */ = {
 			isa = PBXGroup;
 			children = (
-				A099673A26AED02300D67FF1 /* bcm_test_filter_frame_sample.png */,
 				A099673126AECC0800D67FF1 /* overlayFilter.metal */,
-				A099672C26AECBEC00D67FF1 /* overLayFilter.h */,
-				A099672D26AECBEC00D67FF1 /* overLayFilter.m */,
+				A099672C26AECBEC00D67FF1 /* OverLayFilter.h */,
+				A099672D26AECBEC00D67FF1 /* OverLayFilter.m */,
 			);
 			path = OverLayFilter;
+			sourceTree = "<group>";
+		};
+		A099673D26AEE38900D67FF1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A04302FC26AFE5570022C26C /* filter1.darken.png */,
+				A099673A26AED02300D67FF1 /* bcm_test_filter_frame_sample.png */,
+				A0BE383826ADBE440002CBA4 /* Image.png */,
+				A0BE383526ADAFD50002CBA4 /* potrait7.JPG */,
+				A0BE382F26ADAC7E0002CBA4 /* IMG_2025.PNG */,
+				A0BE382C26ADA9020002CBA4 /* IMG_1805.JPG */,
+				A0BE383226ADAD6B0002CBA4 /* potrait9.JPG */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		A09BD7E726A009950076B23C /* CustomFilter */ = {
 			isa = PBXGroup;
 			children = (
+				A04302FF26AFE5820022C26C /* OverlayWithAlphaFilter */,
+				A0803EBF26AEF94B00F8989A /* OverlayWithFrameFilter */,
 				A099672B26AECBBE00D67FF1 /* OverLayFilter */,
 				A0BE381B26AD90520002CBA4 /* MirrorTileFilter */,
 				A0BE381A26AD90400002CBA4 /* WaveFilter */,
@@ -158,11 +205,7 @@
 				A0F1F01D25946C2D00023159 /* AppDelegate.m */,
 				A0F1F02225946C2D00023159 /* ViewController.h */,
 				A0F1F02325946C2D00023159 /* ViewController.m */,
-				A0BE383826ADBE440002CBA4 /* Image.png */,
-				A0BE383526ADAFD50002CBA4 /* potrait7.JPG */,
-				A0BE382F26ADAC7E0002CBA4 /* IMG_2025.PNG */,
-				A0BE382C26ADA9020002CBA4 /* IMG_1805.JPG */,
-				A0BE383226ADAD6B0002CBA4 /* potrait9.JPG */,
+				A099673D26AEE38900D67FF1 /* Images */,
 				A09BD7E726A009950076B23C /* CustomFilter */,
 				A0F1F02525946C2D00023159 /* Main.storyboard */,
 				A0F1F02A25946C3000023159 /* LaunchScreen.storyboard */,
@@ -249,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A099673B26AED02300D67FF1 /* bcm_test_filter_frame_sample.png in Resources */,
+				A04302FD26AFE5570022C26C /* filter1.darken.png in Resources */,
 				A0BE383326ADAD6B0002CBA4 /* potrait9.JPG in Resources */,
 				A0BE383026ADAC7E0002CBA4 /* IMG_2025.PNG in Resources */,
 				A0BE382D26ADA9020002CBA4 /* IMG_1805.JPG in Resources */,
@@ -311,11 +355,15 @@
 				A0BE381E26AD90870002CBA4 /* MirrorTileFilter.m in Sources */,
 				A0F1F02425946C2D00023159 /* ViewController.m in Sources */,
 				A099673226AECC0900D67FF1 /* overlayFilter.metal in Sources */,
-				A099672E26AECBEC00D67FF1 /* overLayFilter.m in Sources */,
+				A0803EC926AEF9D900F8989A /* overlayWithFrameFilter.metal in Sources */,
+				A099672E26AECBEC00D67FF1 /* OverLayFilter.m in Sources */,
+				A043030626AFE6130022C26C /* overlayWithAlphaFilter.metal in Sources */,
 				A0BE382626AD90E50002CBA4 /* mirror_filter.metal in Sources */,
 				A0F1F01E25946C2D00023159 /* AppDelegate.m in Sources */,
 				A0F1F02F25946C3000023159 /* main.m in Sources */,
 				A0F1F0702594AC5400023159 /* waving_filter.metal in Sources */,
+				A043030226AFE5F20022C26C /* OverlayWithAlphaFilter.m in Sources */,
+				A0803EC326AEF97E00F8989A /* OverlayWithFrameFilter.m in Sources */,
 				A0F1F07C2594CDC800023159 /* WavingFlagFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

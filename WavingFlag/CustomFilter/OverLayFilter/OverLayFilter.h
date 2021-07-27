@@ -9,10 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface overLayFilter : MTIUnaryImageRenderingFilter
-//@property (nonatomic) float scale;
-//@property (nonatomic) CGPoint offset;
-//@property (nonatomic) float angle;
+@interface OverLayFilter : MTIUnaryImageRenderingFilter
 @property (nonatomic, strong) MTIImage *overlayMaskImage;
 @end
 
