@@ -1,2 +1,2 @@
 # WavingFlag
-This is a repo containing different filters using metal
+This repo contains different filters using metal
