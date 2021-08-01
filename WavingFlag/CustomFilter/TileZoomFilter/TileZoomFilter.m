@@ -35,7 +35,7 @@
         return self.inputImage;
     }
     self.inputImage = [self.inputImage imageWithSamplerDescriptor:[MTISamplerDescriptor defaultSamplerDescriptorWithAddressMode:MTLSamplerAddressModeClampToEdge]];
-    return [self.class.kernel applyToInputImages:@[ self.inputImage]
+    return [self.class.kernel applyToInputImages:@[ self.inputImage,self.originalImage]
                                       parameters:@{
                                       }
                          outputTextureDimensions:MTITextureDimensionsMake2DFromCGSize(self.inputImage.size)

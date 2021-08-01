@@ -40,6 +40,7 @@
 {
     
     float timeValue =CFAbsoluteTimeGetCurrent()-startTime;
+    timeValue = sin(timeValue);
     return [self.class.kernel applyToInputImages:@[ self.inputImage ]
                                       parameters:@{
                                           @"time" : @(timeValue)

@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TileZoomFilter : MTIUnaryImageRenderingFilter
+@property (nonatomic,strong) MTIImage *originalImage;
 
 @end
 

@@ -58,9 +58,20 @@ UIImage *image;
 //        image = [self takeSnapshot];
 //        image = [UIImage imageNamed:@"IMG_2025.PNG"];
 //        image = [UIImage imageNamed:@"IMG_1805.JPG"];
-        image = [UIImage imageNamed:@"potrait9.JPG"];
-//        image = [UIImage imageNamed:@"potrait7.JPG"];
+//        image = [UIImage imageNamed:@"potrait9.JPG"];
+        image = [UIImage imageNamed:@"potrait7.JPG"];
 //        image = [UIImage imageNamed:@"Image.png"];
+        
+        tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+        tempImage = [tempImage imageByUnpremultiplyingAlpha];
+        
+        MTIMPSGaussianBlurFilter *filter = [[MTIMPSGaussianBlurFilter alloc] init];
+        filter.radius = 100.0;
+        filter.inputImage = tempImage;
+        tempImage = filter.outputImage;
+        
+//        CGImageRef ref = [self.mtiContext createCGImageFromImage:tempImage error:&error];
+        
         self.view.backgroundColor = [UIColor clearColor];
         shapeLayer.fillColor = [UIColor clearColor].CGColor;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -79,8 +90,6 @@ UIImage *image;
 
 
 -(void) useWaveFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage = [tempImage imageByUnpremultiplyingAlpha];
     waveFilter = [[WavingFlagFilter alloc] init];
     while(true){
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -91,8 +100,6 @@ UIImage *image;
 }
 
 -(void) useMirrorTileFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage = [tempImage imageByUnpremultiplyingAlpha];
     mirrorTileFilter = [[MirrorTileFilter alloc] init];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.mtiImageView.image = self->tempImage;
@@ -102,8 +109,6 @@ UIImage *image;
 }
 
 -(void) useOverlayWithFrameFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage = [tempImage imageByUnpremultiplyingAlpha];
     UIImage *backGroundImage = [UIImage imageNamed:@"bcm_test_filter_frame_sample.png"];
     tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage1 = [tempImage1 imageByUnpremultiplyingAlpha];
@@ -112,22 +117,17 @@ UIImage *image;
     overlayWithFrameFilter.frameImage = tempImage1;
     dispatch_async(dispatch_get_main_queue(), ^{
         self.mtiImageView.image = self->tempImage;
-        
         self.mtiImageView.image = self->overlayWithFrameFilter.outputImage;
     });
 }
 
 -(void) useOverlayFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage = [tempImage imageByUnpremultiplyingAlpha];
     UIImage *backGroundImage = [UIImage imageNamed:@"bcm_test_filter_frame_sample.png"];
     tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage1 = [tempImage1 imageByUnpremultiplyingAlpha];
     overlayFilter = [[OverLayFilter alloc] init];
     overlayFilter.inputImage = tempImage;
     overlayFilter.overlayMaskImage = tempImage1;
-    
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         self.mtiImageView.image = self->tempImage;
         
@@ -137,8 +137,6 @@ UIImage *image;
 
 
 -(void) useOverlayWithAlphaFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage = [tempImage imageByUnpremultiplyingAlpha];
     UIImage *backGroundImage = [UIImage imageNamed:@"filter1.darken.png"];
     tempImage1 = [[MTIImage alloc] initWithCGImage:[backGroundImage CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
     tempImage1 = [tempImage1 imageByUnpremultiplyingAlpha];
@@ -152,10 +150,11 @@ UIImage *image;
 }
 
 -(void) useTileZoomFilter{
-    tempImage =[[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
-    tempImage = [tempImage imageByUnpremultiplyingAlpha];
+    MTIImage *originalImage = [[MTIImage alloc] initWithCGImage:[image CGImage] options:@{MTKTextureLoaderOptionSRGB : @(NO)}];
+    originalImage = [originalImage imageByUnpremultiplyingAlpha];
     tileZoomFilter = [[TileZoomFilter alloc] init];
     tileZoomFilter.inputImage = tempImage;
+    tileZoomFilter.originalImage = originalImage;
 
     dispatch_async(dispatch_get_main_queue(), ^{
         self.mtiImageView.image = self->tempImage;
